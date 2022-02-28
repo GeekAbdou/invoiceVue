@@ -5,7 +5,7 @@
 <script>
 import InvoiceTopBar from "../components/InvoiceTopBar.vue";
 export default {
-  name: "invoiceComp",
+  name: "invoice",
   components: {
     InvoiceTopBar,
   },
