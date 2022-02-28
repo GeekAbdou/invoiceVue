@@ -1,10 +1,14 @@
 <template>
-  <h1>Inoivces</h1>
+  <InvoiceTopBar />
 </template>
 
 <script>
+import InvoiceTopBar from "../components/InvoiceTopBar.vue";
 export default {
   name: "invoiceComp",
+  components: {
+    InvoiceTopBar,
+  },
 };
 </script>
 

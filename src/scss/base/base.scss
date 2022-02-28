@@ -12,23 +12,6 @@ html{
 
 body {
   font-family: $primary-font;
-  font-size: 16px;
-  line-height: 1.5;
-
-  &.lock {
-    overflow: hidden;
-  }
-
-  &.opened {
-
-    .mobile-menu-overlay {
-      display: block;
-    }
-
-    .mobile-menu {
-      right: 0;
-    }
-  }
 }
 
 ul{
@@ -39,5 +22,4 @@ ul{
 
 a {
   text-decoration: none;
-  color: $primary-alt-color;
 }
