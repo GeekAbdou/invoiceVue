@@ -544,4 +544,11 @@ export default {
     }
   }
 }
+.flex {
+  display: flex;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
 </style>

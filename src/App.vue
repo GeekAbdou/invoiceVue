@@ -1,7 +1,9 @@
 <template>
   <Navigation />
   <Invoice />
-  <InvoiceModal v-if="invoiceModal" />
+  <transition name="invoiceModal">
+    <InvoiceModal v-if="invoiceModal" />
+  </transition>
 </template>
 
 <script>
@@ -27,5 +29,15 @@ export default {
   display: flex;
   flex-direction: row;
   background-color: #f8f8fb;
+}
+
+// animated invoice
+.invoiceModal-enter-active,
+.invoiceModal-leave-active {
+  transition: 0.5s ease all;
+}
+.invoiceModal-enter-from,
+.invoiceModal-leave-to {
+  transform: translateX(-500px);
 }
 </style>
