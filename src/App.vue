@@ -20,5 +20,6 @@ export default {
 #app {
   display: flex;
   flex-direction: row;
+  background-color: #f8f8fb;
 }
 </style>
