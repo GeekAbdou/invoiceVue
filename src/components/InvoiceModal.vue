@@ -203,7 +203,7 @@
 
 <script>
 import db from "../firebase/firebaseInit";
-//import Loading from "../components/Loading";
+import Loading from "./loading.vue";
 import { mapActions, mapMutations, mapState } from "vuex";
 import { uid } from "uid";
 export default {
@@ -236,7 +236,7 @@ export default {
     };
   },
   components: {
-    //Loading,
+    Loading,
   },
   created() {
     // get current date for invoice date field
