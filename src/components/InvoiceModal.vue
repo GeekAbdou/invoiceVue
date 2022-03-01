@@ -202,7 +202,7 @@
 </template>
 
 <script>
-//import db from "../firebase/firebaseInit";
+import db from "../firebase/firebaseInit";
 //import Loading from "../components/Loading";
 import { mapActions, mapMutations, mapState } from "vuex";
 import { uid } from "uid";
@@ -312,7 +312,7 @@ export default {
     saveDraft() {
       this.invoiceDraft = true;
     },
-    /* async uploadInvoice() {
+    async uploadInvoice() {
       if (this.invoiceItemList.length <= 0) {
         alert("Please ensure you filled out work items!");
         return;
@@ -380,7 +380,7 @@ export default {
         routeId: this.$route.params.invoiceId,
       };
       this.UPDATE_INVOICE(data);
-    },*/
+    },
     submitForm() {
       if (this.editInvoice) {
         this.updateInvoice();
