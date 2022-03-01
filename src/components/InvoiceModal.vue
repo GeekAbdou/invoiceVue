@@ -155,14 +155,14 @@
               </td>
               <img
                 @click="deleteInvoiceItem(item.id)"
-                src="@/assets/icon-delete.svg"
+                src="../assets/imgs/icon-delete.svg"
                 alt=""
               />
             </tr>
           </table>
 
           <div @click="addNewInvoiceItem" class="flex button">
-            <img src="@/assets/icon-plus.svg" alt="" />
+            <img src="../assets/imgs/icon-plus.svg" alt="" />
             Add New Item
           </div>
         </div>
@@ -202,8 +202,8 @@
 </template>
 
 <script>
-import db from "../firebase/firebaseInit";
-import Loading from "../components/Loading";
+//import db from "../firebase/firebaseInit";
+//import Loading from "../components/Loading";
 import { mapActions, mapMutations, mapState } from "vuex";
 import { uid } from "uid";
 export default {
@@ -236,7 +236,7 @@ export default {
     };
   },
   components: {
-    Loading,
+    //Loading,
   },
   created() {
     // get current date for invoice date field
@@ -312,7 +312,7 @@ export default {
     saveDraft() {
       this.invoiceDraft = true;
     },
-    async uploadInvoice() {
+    /* async uploadInvoice() {
       if (this.invoiceItemList.length <= 0) {
         alert("Please ensure you filled out work items!");
         return;
@@ -380,7 +380,7 @@ export default {
         routeId: this.$route.params.invoiceId,
       };
       this.UPDATE_INVOICE(data);
-    },
+    },*/
     submitForm() {
       if (this.editInvoice) {
         this.updateInvoice();
@@ -418,7 +418,7 @@ export default {
     display: none;
   }
   @media (min-width: 900px) {
-    left: 90px;
+    left: 80px;
   }
   .invoice-content {
     position: relative;

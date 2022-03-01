@@ -54,7 +54,6 @@
 
 <script>
 export default {
-  name: "InvoiceTopBar",
   data() {
     return {
       filterMenu: null,
