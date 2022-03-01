@@ -40,7 +40,7 @@
       </div>
       <!--topBar__topBar-right__filter-->
 
-      <div class="topBar-right__filter__Button">
+      <div class="topBar-right__filter__Button" @click="newInvoice">
         <div class="filter__Button__inner-plus">
           <img src="../assets/imgs/icon-plus.svg" alt="" />
         </div>
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   data() {
     return {
@@ -61,6 +62,10 @@ export default {
     };
   },
   methods: {
+    ...mapMutations(["TOGGLE_INVOICE"]),
+    newInvoice() {
+      this.TOGGLE_INVOICE();
+    },
     toggleFilterMenu() {
       this.filterMenu = !this.filterMenu;
     },
