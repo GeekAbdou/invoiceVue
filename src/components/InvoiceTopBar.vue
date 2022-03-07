@@ -62,7 +62,8 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["TOGGLE_INVOICE"]),
+    ...mapMutations(["TOGGLE_INVOICE", "TOGGLE_MODAL", "TOGGLE_EDIT_INVOICE"]),
+
     newInvoice() {
       this.TOGGLE_INVOICE();
     },

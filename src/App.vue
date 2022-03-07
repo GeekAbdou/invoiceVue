@@ -10,16 +10,30 @@
 import Navigation from "./components/Navigation.vue";
 import Invoice from "./components/Invoice.vue";
 import InvoiceModal from "./components/InvoiceModal.vue";
-import { mapState } from "vuex";
+import { mapState, mapActions, mapMutations } from "vuex";
+
 export default {
   name: "App",
+
   components: {
     Navigation,
     Invoice,
     InvoiceModal,
   },
   computed: {
-    ...mapState(["invoiceModal"]),
+    ...mapState(["invoiceModal", "modalActive", "invoicesLoaded"]),
+  },
+  methods: {
+    ...mapMutations(["TOGGLE_INVOICE"]),
+    ...mapActions(["GET_INVOICE"]),
+
+    newInvoice() {
+      this.TOGGLE_INVOICE();
+    },
+  },
+
+  created() {
+    this.GET_INVOICE();
   },
 };
 </script>

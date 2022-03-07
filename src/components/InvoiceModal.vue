@@ -2,7 +2,8 @@
   <div
     @click="checkClick"
     ref="invoiceWrap"
-    class="invoice-wrap flex flex-column"
+    class="invoice-wrap flex flex-column hide-on-clickoutside"
+    v-clickoutside="newInvoice"
   >
     <form @submit.prevent="submitForm" class="invoice-content">
       <Loading v-show="loading" />
@@ -117,7 +118,7 @@
         </div>
         <div class="input flex flex-column">
           <label for="paymentTerms">Payment Terms</label>
-          <select required type="text" id="paymentTerms" v-model="paymentTerms">
+          <select required id="paymentTerms" v-model="paymentTerms">
             <option value="30">Net 30 Days</option>
             <option value="60">Net 60 Days</option>
           </select>
@@ -206,6 +207,7 @@ import db from "../firebase/firebaseInit";
 import Loading from "./loading.vue";
 import { mapActions, mapMutations, mapState } from "vuex";
 import { uid } from "uid";
+
 export default {
   name: "invoiceModal",
   data() {
@@ -235,9 +237,11 @@ export default {
       invoiceTotal: 0,
     };
   },
+
   components: {
     Loading,
   },
+
   created() {
     // get current date for invoice date field
     if (!this.editInvoice) {
@@ -272,14 +276,21 @@ export default {
       this.invoiceTotal = currentInvoice.invoiceTotal;
     }
   },
+
   methods: {
     ...mapMutations(["TOGGLE_INVOICE", "TOGGLE_MODAL", "TOGGLE_EDIT_INVOICE"]),
     ...mapActions(["UPDATE_INVOICE", "GET_INVOICES"]),
+
     checkClick(e) {
       if (e.target === this.$refs.invoiceWrap) {
         this.TOGGLE_MODAL();
       }
     },
+
+    newInvoice() {
+      this.TOGGLE_INVOICE();
+    },
+
     closeInvoice() {
       this.TOGGLE_INVOICE();
       if (this.editInvoice) {
@@ -403,6 +414,31 @@ export default {
       ).toLocaleDateString("en-us", this.dateOptions);
     },
   },
+  directives: {
+    clickoutside: {
+      inserted: (el, binding, vnode) => {
+        // assign event to the element
+        el.clickOutsideEvent = function (event) {
+          // here we check if the click event is outside the element and it's children
+          if (!(el == event.target || el.contains(event.target))) {
+            // if clicked outside, call the provided method
+            vnode.context[binding.expression](event);
+          }
+        };
+        // register click and touch events
+        document.body.addEventListener("click", el.clickOutsideEvent);
+        document.body.addEventListener("touchstart", el.clickOutsideEvent);
+      },
+      unbind: function (el) {
+        // unregister click and touch events before the element is unmounted
+        document.body.removeEventListener("click", el.clickOutsideEvent);
+        document.body.removeEventListener("touchstart", el.clickOutsideEvent);
+      },
+      stopProp(event) {
+        event.stopPropagation();
+      },
+    },
+  },
 };
 </script>
 
@@ -411,7 +447,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 700px;
   height: 100vh;
   overflow: scroll;
   &::-webkit-scrollbar {
