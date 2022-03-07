@@ -10,6 +10,7 @@
 import Navigation from "./components/Navigation.vue";
 import Invoice from "./components/Invoice.vue";
 import InvoiceModal from "./components/InvoiceModal.vue";
+
 import { mapState, mapActions, mapMutations } from "vuex";
 
 export default {
