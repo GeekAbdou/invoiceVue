@@ -1,6 +1,15 @@
-# invoice-gen-vue
+# Invoice App - Frontend Mentor
+<img src="https://raw.githubusercontent.com/GeekAbdou/invoiceVue/main/Screenshot%202022-03-10%20135835.png">
 
-## Project setup
+# Intro
+
+ 
+Thank you for checking out my solution to the [invoice app challenge](https://www.frontendmentor.io/challenges/invoice-app-i7KaLTQjl) from Frontend Mentor. 😀
+
+Feel free to look around and explore! 😉
+
+
+## To run the Project 
 ```
 npm install
 ```
@@ -25,5 +34,8 @@ npm run test:unit
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Outro
+
+Once again, feedback is welcome and appreciated! 😊
+
+Happy coding! 😀
