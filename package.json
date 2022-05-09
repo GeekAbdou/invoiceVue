@@ -9,7 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^3.8.3",
+    "core-js": "^3.22.0",
     "firebase": "^4.8.0",
     "uid": "^2.0.0",
     "vue": "^3.2.13",
